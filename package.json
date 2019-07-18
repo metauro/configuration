@@ -10,7 +10,7 @@
     "configuration",
     "environment"
   ],
-  "main": "index.ts",
+  "main": "index.js",
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
   "homepage": "https://github.com/metauro/nest-configuration#readme",
@@ -26,19 +26,14 @@
     "url": "https://github.com/metauro/nest-configuration"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "prebuild": "rm -rf ./dist ./index.js ./index.d.ts && tsc",
+    "build": "tsc -d --skipLibCheck ./index.ts",
     "format": "prettier --write \"src/**/*.ts\"",
-    "start": "ts-node -r tsconfig-paths/register src/index.ts",
-    "start:dev": "concurrently --handle-input \"wait-on dist/index.js && nodemon\" \"tsc -w -p tsconfig.build.json\" ",
-    "start:debug": "nodemon --config nodemon-debug.json",
-    "prestart:prod": "rimraf dist && npm run build",
-    "start:prod": "node dist/index.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "prepublish": "npm run format && npm run build"
   },
   "dependencies": {
     "@nestjs/common": "^6.0.0",
