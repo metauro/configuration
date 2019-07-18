@@ -10,7 +10,7 @@
     "configuration",
     "environment"
   ],
-  "main": "index.js",
+  "main": "index.ts",
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
   "homepage": "https://github.com/metauro/nest-configuration#readme",
