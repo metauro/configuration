@@ -2,7 +2,9 @@ import merge from 'lodash.merge';
 import { CONFIG_METADATA, env } from './constants';
 import { EnvVariable } from './interface';
 
-export const Configure = <T extends new (...arg: any[]) => any>(target: T) => {
+export const Configuration = <T extends new (...arg: any[]) => any>(
+  target: T,
+) => {
   return class extends target {
     constructor(...args: any[]) {
       super(...args);
