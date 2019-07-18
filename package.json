@@ -1,6 +1,6 @@
 {
   "name": "nest-configuration",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Easily Change Configurations In Different Environments For Nestjs",
   "author": "metauro",
   "license": "MIT",
@@ -28,11 +28,11 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
-    "start": "ts-node -r tsconfig-paths/register src/main.ts",
-    "start:dev": "concurrently --handle-input \"wait-on dist/main.js && nodemon\" \"tsc -w -p tsconfig.build.json\" ",
+    "start": "ts-node -r tsconfig-paths/register src/index.ts",
+    "start:dev": "concurrently --handle-input \"wait-on dist/index.js && nodemon\" \"tsc -w -p tsconfig.build.json\" ",
     "start:debug": "nodemon --config nodemon-debug.json",
     "prestart:prod": "rimraf dist && npm run build",
-    "start:prod": "node dist/main.js",
+    "start:prod": "node dist/index.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
     "test:watch": "jest --watch",
