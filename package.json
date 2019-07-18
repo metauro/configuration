@@ -13,6 +13,18 @@
   "main": "index.js",
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
+  "homepage": "https://github.com/metauro/nest-configuration#readme",
+  "bugs": {
+    "url": "https://github.com/metauro/nest-configuration/issues",
+    "email": "w278206624@gmail.com"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/metauro/nest-configuration"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
