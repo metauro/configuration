@@ -1,6 +1,6 @@
 {
   "name": "nest-configuration",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Easily Change Configurations In Different Environments For Nestjs",
   "author": "metauro",
   "license": "MIT",
