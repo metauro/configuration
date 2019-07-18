@@ -1,4 +1,4 @@
-import merge from 'lodash.merge';
+import merge = require('lodash.merge');
 import { CONFIG_METADATA, env } from './constants';
 import { EnvVariable } from './interface';
 
