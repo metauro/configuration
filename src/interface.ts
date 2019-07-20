@@ -1,3 +1,5 @@
+export type Env = 'development' | 'production' | 'test' | string;
+
 export interface SecurityOptions {
   /**
    * custom decrypt function
@@ -19,6 +21,11 @@ export interface SecurityOptions {
 
 export interface ConfigurationOptions {
   securityOptions?: SecurityOptions;
+  /**
+   * special current env
+   * default: process.env.NODE_ENV
+   */
+  env?: Env;
 }
 
 export interface EnvVariable<T = any> {
