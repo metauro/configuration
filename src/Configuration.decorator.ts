@@ -1,5 +1,5 @@
 import merge = require('lodash.merge');
-import { CONFIG_METADATA, env } from './constants';
+import { CONFIG_METADATA, NODE_ENV } from './constants';
 import { ConfigOptions, ConfigurationOptions } from './interface';
 import { SecurityTool } from './security.tool';
 import { LoggerTool } from './logger.tool';
@@ -31,7 +31,8 @@ export const Configuration = <T extends new (...arg: any[]) => any>(
               property,
             );
             const {
-              securityOptions: { encrypted, privateKeyFilePath, decrypt },
+              securityOptions: { encrypted, decrypt, privateKeyFilePath },
+              env,
             } = merge<PartialDepth<ConfigurationOptions>, ConfigurationOptions>(
               {
                 securityOptions: {
@@ -40,6 +41,7 @@ export const Configuration = <T extends new (...arg: any[]) => any>(
                     return SecurityTool.decrypt(val, privateKeyFilePath);
                   },
                 },
+                env: NODE_ENV,
               },
               singleConfigurationOptions || configurationOptions || {},
             );
