@@ -28,23 +28,29 @@ import { Configuration, Config } from 'nestjs-configuration';
 export class AppConfigService {
   // The value depends on process.env.NODE_ENV
   @Config({
-    development: 3000,
-    production: 8080,
+    envVariable: {
+      development: 3000,
+      production: 8080,
+    },
   })
   port: number;
 
   // it will use base value if current env value is not define
   // if env value is object, it will merge base and env value
   @Config({
-    base: 'info',
-    development: 'debug',
-    production: 'warn',
+    envVariable: {
+      base: 'info',
+      development: 'debug',
+      production: 'warn',
+    },
   })
   loggerLevel: string;
 
   // use generics to constrain values
   @Config<string>({
-    base: 'api',
+    envVariable: {
+      base: 'api',
+    },
   })
   globalPrefix: string;
 }
