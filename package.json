@@ -1,21 +1,23 @@
 {
-  "name": "nest-configuration",
+  "name": "configuration",
   "version": "0.2.0",
-  "description": "Easily Change Configurations In Different Environments For Nestjs",
+  "description": "JavaScript Application Configuration Management",
   "author": "metauro",
   "license": "MIT",
   "keywords": [
-    "nestjs",
+    "conf",
     "config",
     "configuration",
-    "environment"
+    "environment",
+    "env",
+    "enviroment"
   ],
   "main": "index.js",
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
-  "homepage": "https://github.com/metauro/nest-configuration#readme",
+  "homepage": "https://github.com/metauro/configuration#readme",
   "bugs": {
-    "url": "https://github.com/metauro/nest-configuration/issues",
+    "url": "https://github.com/metauro/configuration/issues",
     "email": "w278206624@gmail.com"
   },
   "files": [
@@ -23,7 +25,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/metauro/nest-configuration"
+    "url": "https://github.com/metauro/configuration"
   },
   "scripts": {
     "prebuild": "rm -rf ./dist ./index.js ./index.d.ts && tsc",
