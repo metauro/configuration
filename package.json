@@ -43,7 +43,6 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "app-root-path": "^2.2.1",
     "chalk": "^2.4.2",
     "commander": "^2.20.0",
     "lodash.merge": "^4.6.2",
@@ -52,7 +51,6 @@
     "rimraf": "^2.6.2"
   },
   "devDependencies": {
-    "@types/app-root-path": "^1.2.4",
     "@types/jest": "^23.3.13",
     "@types/lodash.merge": "^4.6.6",
     "@types/node": "^10.12.18",
