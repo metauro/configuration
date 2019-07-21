@@ -1,8 +1,7 @@
 import merge = require('lodash.merge');
 import { CONFIG_METADATA, NODE_ENV } from './constants';
 import { ConfigOptions, ConfigurationOptions } from './interface';
-import { SecurityTool } from './security.tool';
-import { LoggerTool } from './logger.tool';
+import { LoggerTool, SecurityTool } from './tools';
 
 type PartialDepth<T> = T extends object
   ? Partial<{ [K in keyof T]: PartialDepth<T[K]> }>
