@@ -1,22 +1,19 @@
 {
   "compilerOptions": {
+    "module": "umd",
     "moduleResolution": "node",
-    "module": "commonjs",
-    "declaration": true,
-    "noImplicitAny": false,
-    "noUnusedLocals": false,
-    "removeComments": false,
     "noLib": false,
+    "declaration": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "removeComments": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es6",
+    "target": "es5",
     "sourceMap": false,
     "allowJs": false,
-    "rootDir": "./src",
     "baseUrl": "./",
-    "outDir": "./dist",
     "lib": ["es2017"]
-  },
-  "include": ["*.ts", "**/*.ts"],
-  "exclude": ["./index.ts", "./index.d.ts", "node_modules", "./**/*.spec.ts"]
+  }
 }
