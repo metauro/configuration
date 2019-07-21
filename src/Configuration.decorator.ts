@@ -15,7 +15,7 @@ export const Configuration = <T extends new (...arg: any[]) => any>(
       constructor(...args: any[]) {
         super(...args);
         (Reflect.getMetadata(CONFIG_METADATA, target.prototype) || []).forEach(
-          property => {
+          (property: string) => {
             const {
               envVariable,
               configurationOptions: singleConfigurationOptions,
@@ -36,7 +36,7 @@ export const Configuration = <T extends new (...arg: any[]) => any>(
               {
                 securityOptions: {
                   encrypted: false,
-                  decrypt(val) {
+                  decrypt(val: string) {
                     return SecurityTool.decrypt(val, privateKeyFilePath);
                   },
                 },

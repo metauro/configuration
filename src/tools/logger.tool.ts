@@ -3,7 +3,7 @@ import { ConfigurationError } from '../error';
 export class LoggerTool {
   private static readonly logger = console;
 
-  static log(level: string, message: string) {
+  static log(level: keyof typeof console, message: string) {
     LoggerTool.logger[level](`[nest-configuration ${level}]: ${message}`);
   }
 
