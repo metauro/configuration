@@ -1,4 +1,4 @@
-import { ConfigurationError } from './error';
+import { ConfigurationError } from '../error';
 
 export class LoggerTool {
   private static readonly logger = console;
