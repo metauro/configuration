@@ -21,7 +21,7 @@ export type EnvVariable<T = any> = { [key in Env]?: T };
 export interface SecurityOptions {
   /**
    * custom decrypt function
-   * default using RSA
+   * default using AES-256-CBC
    * @param encryptedValue
    */
   decrypt?: (encryptedValue: string) => string;
@@ -30,14 +30,8 @@ export interface SecurityOptions {
    * default: false
    */
   encrypted?: boolean;
-  /**
-   * RSA private key file path
-   * if encrypted option is true, you must specify this option
-   */
-  privateKeyFilePath?: string;
 }
 
-export interface SecurityConfig {
-  publicKey: string;
-  privateKey: string;
-}
+export type PartialDepth<T> = T extends object
+  ? Partial<{ [K in keyof T]: PartialDepth<T[K]> }>
+  : T;
