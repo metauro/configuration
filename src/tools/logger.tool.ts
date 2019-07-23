@@ -1,5 +1,3 @@
-import { ConfigurationError } from '../error';
-
 interface Logger {
   log(message: string): void;
   info(message: string): void;
@@ -7,11 +5,13 @@ interface Logger {
   error(message: string): void;
 }
 
+const tag = `js-config`;
+
 export class LoggerTool {
   private static readonly logger = console;
 
   static log(level: keyof Logger, message: string) {
-    LoggerTool.logger[level](`[configuration ${level}]: ${message}`);
+    LoggerTool.logger[level](`[${tag} ${level}]: ${message}`);
   }
 
   static info(message: string) {
@@ -23,6 +23,6 @@ export class LoggerTool {
   }
 
   static error(message: string) {
-    throw new ConfigurationError(message);
+    throw new Error(`[${tag} error]: ${message}`);
   }
 }
