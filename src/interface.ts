@@ -16,7 +16,7 @@ export interface ConfigOptions<T = any> {
 }
 
 export type Env = 'development' | 'production' | 'test' | string;
-export type EnvVariable<T = any> = { [key in Env]?: T };
+export type EnvVariable<T = any> = { [key in Env | 'base']?: T };
 
 export interface SecurityOptions {
   /**
