@@ -12,12 +12,9 @@
     "env",
     "enviroment"
   ],
-  "main": "index.js",
-  "bin": {
-    "configuration": "./bin/configuration.js"
-  },
-  "types": "dist/index.d.ts",
-  "typings": "dist/index.d.ts",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "typings": "./index.d.ts",
   "homepage": "https://github.com/metauro/configuration#readme",
   "bugs": {
     "url": "https://github.com/metauro/configuration/issues",
@@ -31,9 +28,9 @@
     "url": "https://github.com/metauro/configuration"
   },
   "scripts": {
-    "prebuild": "rimraf ./dist ./index.js ./index.d.ts && tsc -p ./tsconfig.src.json",
-    "build": "tsc -p ./tsconfig.index.json",
-    "build:cli": "tsc -p ./tsconfig.cli.json",
+    "prebuild": "rimraf ./dist",
+    "build": "tsc -p ./tsconfig.json",
+    "postbuild": "rimraf ./index.js ./index.d.ts && tsc -d index.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
@@ -43,14 +40,14 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "chalk": "^2.4.2",
-    "commander": "^2.20.0",
+    "app-root-path": "^2.2.1",
     "lodash.merge": "^4.6.2",
-    "node-rsa": "^1.0.5",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^2.6.2"
   },
   "devDependencies": {
+    "@types/app-root-path": "^1.2.4",
+    "@types/inquirer": "^6.0.3",
     "@types/jest": "^23.3.13",
     "@types/lodash.merge": "^4.6.6",
     "@types/node": "^10.12.18",
