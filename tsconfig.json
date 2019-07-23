@@ -13,7 +13,10 @@
     "target": "es5",
     "sourceMap": false,
     "allowJs": false,
+    "rootDir": "./src",
+    "outDir": "./dist",
     "baseUrl": "./",
     "lib": ["es2017"]
-  }
+  },
+  "include": ["./src/**/*.ts"]
 }
