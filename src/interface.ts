@@ -36,3 +36,8 @@ export interface SecurityOptions {
    */
   privateKeyFilePath?: string;
 }
+
+export interface SecurityConfig {
+  publicKey: string;
+  privateKey: string;
+}

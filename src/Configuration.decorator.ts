@@ -2,10 +2,7 @@ import merge = require('lodash.merge');
 import { CONFIG_METADATA, NODE_ENV } from './constants';
 import { ConfigOptions, ConfigurationOptions } from './interface';
 import { LoggerTool, SecurityTool } from './tools';
-
-type PartialDepth<T> = T extends object
-  ? Partial<{ [K in keyof T]: PartialDepth<T[K]> }>
-  : T;
+import { PartialDepth } from './interface';
 
 export const Configuration = <T extends new (...arg: any[]) => any>(
   configurationOptions: ConfigurationOptions,
@@ -30,19 +27,22 @@ export const Configuration = <T extends new (...arg: any[]) => any>(
               property,
             );
             const {
-              securityOptions: { encrypted, decrypt, privateKeyFilePath },
+              securityOptions: { encrypted, decrypt },
               env,
             } = merge<PartialDepth<ConfigurationOptions>, ConfigurationOptions>(
               {
                 securityOptions: {
                   encrypted: false,
                   decrypt(val: string) {
-                    return SecurityTool.decrypt(val, privateKeyFilePath);
+                    return SecurityTool.decrypt(val);
                   },
                 },
                 env: NODE_ENV,
               },
-              singleConfigurationOptions || configurationOptions || {},
+              merge(
+                configurationOptions || {},
+                singleConfigurationOptions || {},
+              ),
             );
 
             if (encrypted && propertyType !== String) {
